@@ -4,9 +4,7 @@ Configurações do meu ambiente de desenvolvimento e do **i3wm**, todas com o
 tema **Gruvbox Material Dark**.
 
 O repositório vive direto em `~/.config` — ou seja, é o próprio diretório de
-configuração da máquina versionado em git, com um `.gitignore` em modo
-"allowlist": **só sobe o que eu decidi que vale a pena**, nunca caches,
-cookies ou dados de aplicativos.
+configuração da máquina versionado em git.
 
 ## Estrutura
 
@@ -80,10 +78,6 @@ INTERNAL_SIDE=left MODE=2560x1440 monitors.sh
 
 ## Notas
 
-- `VSCodium/`, `opencode/` e `qutebrowser/` entram só com o essencial — cada um
-  tem um `.gitignore` interno filtrando state de maquina/cache.
-- O `.gitignore` da raiz usa allowlist: adicionar uma config nova = criar uma
-  linha `!config/` nele.
 - Tema unificado: Gruvbox Material Dark nos arquivos de i3, polybar, alacritty,
   qutebrowser e neovim.
 
