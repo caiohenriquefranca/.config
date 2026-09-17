@@ -1,0 +1,7 @@
+# So as preferencias do usuario entram; o resto (globalStorage, History,
+# workspaceStorage) e estado por app/por maquina.
+*
+!.gitignore
+!settings.json
+!snippets/
+!snippets/**

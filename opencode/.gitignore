@@ -1,0 +1,7 @@
+# Config do opencode + scripts de instalacao de plugins; node_modules e
+# instalacao local e nao vai para o repositorio.
+*
+!.gitignore
+!opencode.jsonc
+!package.json
+!package-lock.json

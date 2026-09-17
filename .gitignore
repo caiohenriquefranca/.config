@@ -1,0 +1,34 @@
+# Estrategia: "allowlist" -- tudo dentro de ~/.config e ignorado por padrao.
+# So sobe para o repositorio o que estiver explicitamente liberado abaixo.
+# Assim caches, cookies, dados de aplicativos e metadados da maquina ficam de fora.
+#
+# Diretorios com muita "sujeira" interna (VSCodium, opencode, qutebrowser) tem
+# um .gitignore proprio re-incluindo apenas os arquivos de config desejados.
+
+/*
+
+# arquivos da raiz
+!.gitignore
+!README.md
+
+# ambiente i3wm
+!alacritty/
+!autostart/
+!dunst/
+!i3/
+!picom/
+!polybar/
+!rofi/
+!wallpapers/
+
+# ambiente de desenvolvimento
+!fastfetch/
+!neofetch/
+!nvim/
+!opencode/
+!qutebrowser/
+!tmux/
+!VSCodium/
+
+# backups / arquivos temporarios (ex: alacritty.toml.98205704.bak)
+*.bak

@@ -1,0 +1,86 @@
+configuration {
+    display-drun:                   "Apps";
+    display-window:                 "Window";
+    modi:                           "window,drun,ssh,combi,run";
+    show-icons:true;
+}
+
+element-icon {
+  margin: 3px 15px 0 0;
+  size: 20;
+}
+
+* {
+    lines: 15;
+    columns: 1;
+    border-color: #00000000;
+    font: "Iosevka Term 16";
+    background:                  #282828;
+    foreground:                  #d4be98;
+    alternate-normal-background: #282828ED;
+    alternate-normal-foreground: #d4be98;
+    selected-normal-background:  #d8a657;
+}
+
+window {
+    border: 0;
+    border-radius: 0;
+    padding: 50;
+    width: 28%;
+    height: 50%;
+    /* Transparencia: o rofi 1.7.5 NAO aplica a propriedade 'opacity' no X11
+       (testado: _NET_WM_WINDOW_OPACITY nao e setado, a janela segue 100% opaca
+       mesmo com opacity: 0). Por isso ela sai daqui e fica no picom, em
+       ~/.config/picom/picom.conf -> opacity-rule:  "85:class_g = 'Rofi'".
+       Para mudar: edite o numero no picom.conf (menor = mais transparente)
+       e reinicie o picom. */
+}
+
+mainbox {
+    background-color: #00000000;
+    children: [inputbar, listview];
+    spacing: 10px;
+    padding: 30px 0;
+    border: 1px;
+    border-color: #d8a657;
+}
+
+
+listview {
+    background-color: #00000000;
+    fixed-height: 0;
+    border: 0px;
+    spacing: 5px;
+    scrollbar: false;
+    padding: 10px 10px 0px;
+}
+
+element {
+    background-color: #00000000;
+    border: 0;
+    border-radius: 0;
+    padding: 5 0  5 10 ;
+}
+
+element selected {
+    background: #d8a657ff;
+    text-color: #282828;
+}
+
+inputbar {
+    children:   [entry,case-indicator];
+    background-color: #00000000;
+    padding: 0 0 0 14;
+}
+
+case-indicator {
+    background-color: #00000000;
+	text-color: #a89984;
+    spacing:    0;
+}
+
+entry {
+    background-color: #00000000;
+    spacing:    0;
+	placeholder: "";
+}

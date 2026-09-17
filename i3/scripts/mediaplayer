@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+
+use Env qw(BLOCK_INSTANCE);
+
+my @metadata = ();
+my $player_arg = "";
+
+if ($BLOCK_INSTANCE) {
+    $player_arg = "--player='$BLOCK_INSTANCE'";
+}
+
+if ($ENV{'BLOCK_BUTTON'} == 2) {
+    system("playerctl $player_arg previous");
+} elsif ($ENV{'BLOCK_BUTTON'} == 1) {
+    system("playerctl $player_arg play-pause");
+} elsif ($ENV{'BLOCK_BUTTON'} == 3) {
+    system("playerctl $player_arg next");
+} elsif ($ENV{'BLOCK_BUTTON'} == 4) {
+    system("playerctl $player_arg volume 0.1+");
+} elsif ($ENV{'BLOCK_BUTTON'} == 5) {
+    system("playerctl $player_arg volume 0.1-");
+}
+
+
+
+my $artist = qx(playerctl $player_arg metadata artist);
+$a=chomp($artist);
+push(@metadata, $artist) if $artist;
+
+my $title = qx(playerctl $player_arg metadata title);
+
+my $status = qx(playerctl $player_arg status);
+if ($status eq "Paused\n"){
+	$t=chop($title);
+	$title .= " \n";
+}
+push(@metadata, $title) if $title;
+
+print(join(" - ", @metadata)) if @metadata;

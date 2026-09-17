@@ -1,0 +1,7 @@
+# VSCodium guarda o User/ no meio de toneladas de caches Chromium (Cache,
+# Cookies, Local Storage, etc.). Vem so o que importa: User/settings.json e
+# User/snippets/.
+*
+!.gitignore
+!User/
+!User/.gitignore

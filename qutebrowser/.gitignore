@@ -1,0 +1,8 @@
+# So a config (e bookmarks/quickmarks) do navegador; __pycache__ e estado
+# gerado automaticamente ficam de fora.
+*
+!.gitignore
+!config.py
+!bookmarks/
+!bookmarks/**
+!quickmarks
