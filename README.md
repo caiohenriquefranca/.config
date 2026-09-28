@@ -83,4 +83,4 @@ INTERNAL_SIDE=left MODE=2560x1440 monitors.sh
 
 ## Licença
 
-Sinta-se livre para usar como base para o seu próprio ambiente.
+Sinta-se livre para usar como base para o seu próprio ambiente
