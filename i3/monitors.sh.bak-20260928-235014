@@ -16,7 +16,7 @@
 #   RATE_INTERNAL=120          taxa do painel interno        (padrao: 120)
 #   RATE_EXTERNAL=100          taxa do monitor externo       (padrao: 100)
 #   WALLPAPER=/caminho/img     papel de parede               (padrao: ~/.config/wallpapers/wallpaper.jpeg)
-#   RESTART_BAR=0|1            reinicia a polybar no final   (padrao: 0)
+#   RESTART_BAR=0|1            reinicia a polybar no final   (padrao: 1)
 
 set -eu
 
@@ -25,7 +25,7 @@ RATE_INTERNAL="${RATE_INTERNAL:-120}"
 RATE_EXTERNAL="${RATE_EXTERNAL:-100}"
 INTERNAL_SIDE="${INTERNAL_SIDE:-right}"
 WALLPAPER="${WALLPAPER:-$HOME/.config/wallpapers/wallpaper.jpeg}"
-RESTART_BAR="${RESTART_BAR:-0}"
+RESTART_BAR="${RESTART_BAR:-1}"
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/monitors"
 MODE_W="${MODE%%x*}"
 MODE_H="${MODE#*x}"
@@ -167,8 +167,7 @@ apply_wallpaper
 
 # ---------------------------------------------------------------------------
 # 4. reinicia a polybar depois do layout definido, senao launch.sh nao encontra
-#    um monitor "primary" e sobe a barra em apenas uma tela.
-#    Desativado por padrao (RESTART_BAR=0): o i3 esta usando a i3bar padrao.
+#    um monitor "primary" e sobe a barra em apenas uma tela
 # ---------------------------------------------------------------------------
 if [ "$RESTART_BAR" = "1" ] && [ -x "$HOME/.config/polybar/launch.sh" ]; then
     "$HOME/.config/polybar/launch.sh"

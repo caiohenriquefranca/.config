@@ -3,7 +3,7 @@
 program = "/usr/bin/zsh"
 
 [window]
-opacity = 1.0
+opacity = 0.9
 padding = { x = 8, y = 8 }
 
 [font]
@@ -13,42 +13,38 @@ size = 14.0
 family = "NotoMono Nerd Font Mono"
 style = "Regular"
 
-# Fundo preto puro; a rampa azul da paleta i3wm fica reservada a selecao,
-# cursor e ao texto em negrito/destaque.
-#   #000000 fundo | #ffffff texto | #4f7899 selecao
-# As 16 cores ANSI sao uma rampa monocromatica azul derivada de #4f7899
-# (matiz 206 preservado, luminosidade interpolada de 0.48 a 0.90).
+# Gruvbox Material Dark
 [colors.primary]
-background = "#000000"
-foreground = "#ffffff"
+background = "#282828"
+foreground = "#d4be98"
 
 [colors.cursor]
-text = "#000000"
-cursor = "#4f7899"
+text = "#282828"
+cursor = "#d4be98"
 
 [colors.selection]
-text = "#ffffff"
-background = "#4f7899"
+text = "#282828"
+background = "#504945"
 
 [colors.normal]
-black   = "#0d2436"
-red     = "#4682af"
-green   = "#508ab5"
-yellow  = "#5e91b8"
-blue    = "#6b99bb"
-magenta = "#78a0bf"
-cyan    = "#85a8c2"
-white   = "#91b0c6"
+black   = "#32302f"
+red     = "#ea6962"
+green   = "#a9b665"
+yellow  = "#d8a657"
+blue    = "#7daea3"
+magenta = "#d3869b"
+cyan    = "#89b482"
+white   = "#d4be98"
 
 [colors.bright]
-black   = "#153751"
-red     = "#3f7ba8"
-green   = "#4a86b0"
-yellow  = "#5a8fb6"
-blue    = "#6b9ec4"
-magenta = "#7fb0d4"
-cyan    = "#93c3e4"
-white   = "#b8dcf5"
+black   = "#5a524c"
+red     = "#ea6962"
+green   = "#a9b665"
+yellow  = "#d8a657"
+blue    = "#7daea3"
+magenta = "#d3869b"
+cyan    = "#89b482"
+white   = "#ddc7a1"
 
 [[keyboard.bindings]]
 key = "Return"
