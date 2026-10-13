@@ -46,14 +46,14 @@ bindsym --release $mod+y exec --no-startup-id import -silent -window root ~/Imag
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # as duas teclas abrem o mesmo launcher, com as cores da barra de titulo do i3
-set $menu i3-dmenu-desktop --dmenu="dmenu -i -nb #285577 -nf #ffffff -sb #4f7899 -sf #ffffff"
+set $menu i3-dmenu-desktop --dmenu="dmenu -i -nb #000000 -nf #ffffff -sb #ffffff -sf #000000"
 bindsym $mod+semicolon exec $menu
 bindsym $mod+d exec $menu
 
@@ -204,8 +204,26 @@ bindsym $mod+Escape mode "$mode_system"
 exec_always --no-startup-id ~/.config/i3/monitors.sh
 
 # bar: i3bar (barra padrao do i3) embaixo, com o i3status padrao.
+# tema branco e preto: fundo preto, detalhes (texto/workspace focado) brancos.
 bar {
         status_command i3status
         position bottom
         font pango:Noto Sans Mono 12
+        colors {
+                background          #000000
+                statusline          #ffffff
+                separator           #666666
+                #                     border  backgr. text
+                focused_workspace    #ffffff #ffffff #000000
+                active_workspace     #888888 #000000 #ffffff
+                inactive_workspace   #555555 #000000 #888888
+                urgent_workspace     #ffffff #ffffff #000000
+        }
 }
+
+# bordas das janelas: janela selecionada com borda branca, resto preto.
+#                       border  backgr. text    indicator
+client.focused          #ffffff #ffffff #000000 #ffffff
+client.focused_inactive #666666 #000000 #ffffff #ffffff
+client.unfocused        #666666 #000000 #888888 #ffffff
+client.urgent           #ffffff #ffffff #000000 #ffffff
