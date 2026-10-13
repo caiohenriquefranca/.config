@@ -1,31 +1,32 @@
 -- =============================================================
--- Tema: Vague (https://github.com/vague-theme/vague.nvim)
+-- Tema: Achroma (https://github.com/binbandit/achroma.nvim)
 --
--- Fundo preto puro (#000000) igual ao do Alacritty
--- (~/.config/alacritty/alacritty.toml), mantendo o resto da paleta
--- original do Vague. As cores escuras derivadas (line, inactiveBg)
--- tambem foram escurecidas para nao destoar do fundo preto.
+-- Tema monocromatico (preto / cinza / branco) igual ao do Alacritty
+-- (~/.config/alacritty/alacritty.toml).
+--
+-- variant = "black" => fundo preto puro (#000000), texto branco/cinza,
+-- sem nenhuma cor de destaque. Use `pop = true` se quiser que erros,
+-- strings e keywords ganhem cor.
 -- =============================================================
 
 return {
   {
-    "vague-theme/vague.nvim",
+    "binbandit/achroma.nvim",
     lazy = false,
     priority = 1000,
     opts = {
+      variant = "black",
       transparent = false,
-      bold = true,
-      italic = true,
-      colors = {
-        -- original: bg #141415 | inactiveBg #1c1c24 | line #252530
-        bg = "#000000",
-        inactiveBg = "#0a0a0c",
-        line = "#141418",
-      },
     },
     config = function(_, opts)
-      require("vague").setup(opts)
-      vim.cmd.colorscheme("vague")
+      -- o colors/achroma.lua reaplica setup({ mode = ... }) sem a variant,
+      -- entao forcamos nossas opcoes por baixo pra manter o fundo preto
+      local achroma = require("achroma")
+      local setup = achroma.setup
+      achroma.setup = function(o)
+        return setup(vim.tbl_deep_extend("force", opts, o or {}))
+      end
+      vim.cmd.colorscheme("achroma")
     end,
   },
 
@@ -33,18 +34,16 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vague",
+      colorscheme = "achroma",
     },
   },
 
-  -- vague.nvim não traz extra de lualine, e o "auto" ficaria com o cinza do
-  -- PmenuThumb como indicador de modo. ~/.config/nvim/lua/lualine/themes/vague.lua
-  -- usa a própria paleta do vague e segue o fundo preto.
+  -- achroma.nvim já traz um tema de lualine próprio (preto/cinza).
   {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        theme = "vague",
+        theme = "achroma",
       },
     },
   },
