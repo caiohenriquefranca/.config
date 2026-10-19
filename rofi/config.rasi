@@ -13,41 +13,42 @@ element-icon {
 * {
     lines: 15;
     columns: 1;
-    border-color: #00000000;
-    font: "Iosevka Term 16";
-    background:                  #282828;
-    foreground:                  #d4be98;
-    alternate-normal-background: #282828ED;
-    alternate-normal-foreground: #d4be98;
-    selected-normal-background:  #d8a657;
+    font: "Noto Sans Mono 14";
+    /* Paleta oliva/sepia do tema */
+    background:                  #2B3321;
+    foreground:                  #A4A479;
+    alternate-normal-background: #2B3321ED;
+    alternate-normal-foreground: #A4A479;
+    selected-normal-background:  #797B53;
+    selected-normal-foreground:  #12150D;
+    border-color:                #797B53;
 }
 
 window {
-    border: 0;
+    border: 1;
+    border-color: #797B53;
     border-radius: 0;
     padding: 50;
     width: 28%;
     height: 50%;
-    /* Transparencia: o rofi 1.7.5 NAO aplica a propriedade 'opacity' no X11
-       (testado: _NET_WM_WINDOW_OPACITY nao e setado, a janela segue 100% opaca
-       mesmo com opacity: 0). Por isso ela sai daqui e fica no picom, em
-       ~/.config/picom/picom.conf -> opacity-rule:  "85:class_g = 'Rofi'".
-       Para mudar: edite o numero no picom.conf (menor = mais transparente)
-       e reinicie o picom. */
+    /* Transparencia: o rofi 1.7.5 NAO aplica a propriedade 'opacity' no X11,
+       por isso ela fica no picom, em ~/.config/picom/picom.conf ->
+       opacity-rule: "85:class_g = 'Rofi'".
+       Para mudar: edite o numero no picom.conf e reinicie o picom. */
 }
 
 mainbox {
-    background-color: #00000000;
+    background-color: #2B3321;
     children: [inputbar, listview];
     spacing: 10px;
     padding: 30px 0;
     border: 1px;
-    border-color: #d8a657;
+    border-color: #797B53;
 }
 
 
 listview {
-    background-color: #00000000;
+    background-color: #2B3321;
     fixed-height: 0;
     border: 0px;
     spacing: 5px;
@@ -56,31 +57,32 @@ listview {
 }
 
 element {
-    background-color: #00000000;
+    background-color: #2B3321;
     border: 0;
     border-radius: 0;
     padding: 5 0  5 10 ;
 }
 
 element selected {
-    background: #d8a657ff;
-    text-color: #282828;
+    background: #797B53ff;
+    text-color: #12150D;
 }
 
 inputbar {
     children:   [entry,case-indicator];
-    background-color: #00000000;
+    background-color: #2B3321;
     padding: 0 0 0 14;
 }
 
 case-indicator {
-    background-color: #00000000;
-	text-color: #a89984;
+    background-color: #2B3321;
+	text-color: #797B53;
     spacing:    0;
 }
 
 entry {
-    background-color: #00000000;
+    background-color: #2B3321;
+    text-color: #A4A479;
     spacing:    0;
 	placeholder: "";
 }

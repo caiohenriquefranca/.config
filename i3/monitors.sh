@@ -15,7 +15,7 @@
 #   MODE=1920x1080             resolucao aplicada nas telas  (padrao: 1920x1080)
 #   RATE_INTERNAL=120          taxa do painel interno        (padrao: 120)
 #   RATE_EXTERNAL=100          taxa do monitor externo       (padrao: 100)
-#   WALLPAPER=/caminho/img     papel de parede               (padrao: ~/.config/wallpapers/wallpaper.jpeg)
+#   WALLPAPER=/caminho/img     papel de parede               (padrao: ~/.config/wallpapers/verde.jpeg)
 #   RESTART_BAR=0|1            reinicia a polybar no final   (padrao: 0)
 
 set -eu
@@ -24,7 +24,7 @@ MODE="${MODE:-1920x1080}"
 RATE_INTERNAL="${RATE_INTERNAL:-120}"
 RATE_EXTERNAL="${RATE_EXTERNAL:-100}"
 INTERNAL_SIDE="${INTERNAL_SIDE:-right}"
-WALLPAPER="${WALLPAPER:-$HOME/.config/wallpapers/wallpaper.jpeg}"
+WALLPAPER="${WALLPAPER:-$HOME/.config/wallpapers/verde.jpeg}"
 RESTART_BAR="${RESTART_BAR:-0}"
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/monitors"
 MODE_W="${MODE%%x*}"

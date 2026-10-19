@@ -1,49 +1,24 @@
 -- =============================================================
--- Tema: Achroma (https://github.com/binbandit/achroma.nvim)
+-- Tema: oliva (paleta sepia/verde-oliva do i3wm + wallpaper verde)
 --
--- Tema monocromatico (preto / cinza / branco) igual ao do Alacritty
--- (~/.config/alacritty/alacritty.toml).
---
--- variant = "black" => fundo preto puro (#000000), texto branco/cinza,
--- sem nenhuma cor de destaque. Use `pop = true` se quiser que erros,
--- strings e keywords ganhem cor.
+-- Colorscheme proprio, definido em ~/.config/nvim/colors/oliva.lua.
+-- Mesma paleta do kitty, alacritty, i3bar, rofi e dunst:
+--   fundo #15190F | texto #A4A479 | destaque #797B53
 -- =============================================================
 
 return {
   {
-    "binbandit/achroma.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      variant = "black",
-      transparent = false,
-    },
-    config = function(_, opts)
-      -- o colors/achroma.lua reaplica setup({ mode = ... }) sem a variant,
-      -- entao forcamos nossas opcoes por baixo pra manter o fundo preto
-      local achroma = require("achroma")
-      local setup = achroma.setup
-      achroma.setup = function(o)
-        return setup(vim.tbl_deep_extend("force", opts, o or {}))
-      end
-      vim.cmd.colorscheme("achroma")
-    end,
-  },
-
-  -- LazyVim usa essa opção para saber qual é o tema atual (lualine "auto" etc.)
-  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "achroma",
+      colorscheme = "oliva",
     },
   },
 
-  -- achroma.nvim já traz um tema de lualine próprio (preto/cinza).
   {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        theme = "achroma",
+        theme = "oliva",
       },
     },
   },
